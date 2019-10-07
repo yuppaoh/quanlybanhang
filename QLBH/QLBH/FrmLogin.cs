@@ -15,5 +15,28 @@ namespace QLBH
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (txtUsername == "admin" && txtPass == "12345")
+            {
+                ShowDialog('Dang nhap thanh cong');
+            }
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
