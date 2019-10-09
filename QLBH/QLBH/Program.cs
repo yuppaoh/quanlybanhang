@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLBH.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,7 +16,8 @@ namespace QLBH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmDatHang());
+            //Application.Run(new FrmDanhMucSanPham());
         }
     }
 }

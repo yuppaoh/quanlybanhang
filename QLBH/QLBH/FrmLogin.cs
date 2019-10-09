@@ -18,9 +18,9 @@ namespace QLBH
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txtUsername == "admin" && txtPass == "12345")
+            if (txtUsername.Text == "admin" && txtPass.Text == "12345")
             {
-                ShowDialog('Dang nhap thanh cong');
+                MessageBox.Show("Dang nhap thanh cong");
             }
         }
 
