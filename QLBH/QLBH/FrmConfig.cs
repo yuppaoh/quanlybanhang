@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace QLBH.Functions
+namespace QLBH
 {
-    public partial class FrmDanhMucKhachHang : Form
+    public partial class FrmConfig : Form
     {
         string connectionString = QLBH.Properties.Settings.Default.QLBHConnectionString;
 
-        public FrmDanhMucKhachHang()
+        public FrmConfig()
         {
             InitializeComponent();
         }
@@ -22,10 +22,10 @@ namespace QLBH.Functions
         /// <summary>
         /// Hàm dùng để load danh sách cấu hình
         /// </summary>
-        public void LoadDanhMucKhachHang()
+        public void LoadDanhMucCauHinh()
         {
             // Tạo câu lệnh để thực thi đến database
-            string queryString = "SELECT * FROM customers";
+            string queryString = "SELECT * FROM configs";
 
             // Tạo object từ class SqlConnection (dùng để quản lý kết nối đến Database Server)
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -43,12 +43,12 @@ namespace QLBH.Functions
                         adapter.SelectCommand = command;
 
                         // Đổ dữ liệu vào dataset
-                        adapter.Fill(qLBHDataSet.customers);
+                        adapter.Fill(qLBHDataSet.configs);
 
                         // Hiển thị dữ liệu
                         //configsBindingSource.DataSource = null;
-                        customersBindingSource.DataSource = qLBHDataSet.customers;
-                        customersDataGridView.Refresh();
+                        configsBindingSource.DataSource = qLBHDataSet.configs;
+                        configsDataGridView.Refresh();
 
                         // Ngắt kết nối đến Database Server
                         connection.Close();
@@ -58,18 +58,19 @@ namespace QLBH.Functions
                         // Hiển thị thông báo nếu có lỗi
                         MessageBox.Show(ex.Message);
                     }
-
                 }
             }
-
         }
 
-        private void FrmDanhMucKhachHang_Load(object sender, EventArgs e)
+
+        private void button4_Click(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLBHDataSet.customers' table. You can move, or remove it, as needed.
-            LoadDanhMucKhachHang();
-
+            this.Close();
         }
-       
+
+        private void FrmConfig_Load(object sender, EventArgs e)
+        {
+            LoadDanhMucCauHinh();
+        }
     }
 }

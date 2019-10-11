@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLBH.Functions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,23 @@ namespace QLBH
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void cấuHìnhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConfig frmconfig = new FrmConfig();
+            frmconfig.Show();
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDanhMucKhachHang f1 = new FrmDanhMucKhachHang();
+            f1.Show();
         }
     }
 }
