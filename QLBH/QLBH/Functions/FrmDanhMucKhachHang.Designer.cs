@@ -65,11 +65,11 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.phoneNumericUpDown = new System.Windows.Forms.NumericUpDown();
             last_nameLabel = new System.Windows.Forms.Label();
             first_nameLabel = new System.Windows.Forms.Label();
@@ -189,6 +189,7 @@
             // 
             // last_nameTextBox
             // 
+            this.last_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "last_name", true));
             this.last_nameTextBox.Location = new System.Drawing.Point(114, 36);
             this.last_nameTextBox.Name = "last_nameTextBox";
             this.last_nameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -196,6 +197,7 @@
             // 
             // first_nameTextBox
             // 
+            this.first_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "first_name", true));
             this.first_nameTextBox.Location = new System.Drawing.Point(114, 63);
             this.first_nameTextBox.Name = "first_nameTextBox";
             this.first_nameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -203,6 +205,7 @@
             // 
             // emailTextBox
             // 
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "email", true));
             this.emailTextBox.Location = new System.Drawing.Point(114, 88);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(100, 20);
@@ -210,6 +213,7 @@
             // 
             // companyTextBox
             // 
+            this.companyTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "company", true));
             this.companyTextBox.Location = new System.Drawing.Point(317, 36);
             this.companyTextBox.Name = "companyTextBox";
             this.companyTextBox.Size = new System.Drawing.Size(120, 20);
@@ -217,6 +221,7 @@
             // 
             // address1TextBox
             // 
+            this.address1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "address1", true));
             this.address1TextBox.Location = new System.Drawing.Point(317, 89);
             this.address1TextBox.Name = "address1TextBox";
             this.address1TextBox.Size = new System.Drawing.Size(100, 20);
@@ -224,6 +229,7 @@
             // 
             // postal_codeTextBox
             // 
+            this.postal_codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "postal_code", true));
             this.postal_codeTextBox.Location = new System.Drawing.Point(317, 115);
             this.postal_codeTextBox.Name = "postal_codeTextBox";
             this.postal_codeTextBox.Size = new System.Drawing.Size(100, 20);
@@ -231,6 +237,7 @@
             // 
             // address2TextBox
             // 
+            this.address2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "address2", true));
             this.address2TextBox.Location = new System.Drawing.Point(537, 37);
             this.address2TextBox.Name = "address2TextBox";
             this.address2TextBox.Size = new System.Drawing.Size(100, 20);
@@ -238,6 +245,7 @@
             // 
             // cityTextBox
             // 
+            this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "city", true));
             this.cityTextBox.Location = new System.Drawing.Point(537, 63);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(100, 20);
@@ -245,6 +253,7 @@
             // 
             // stateTextBox
             // 
+            this.stateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "state", true));
             this.stateTextBox.Location = new System.Drawing.Point(537, 89);
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(100, 20);
@@ -252,6 +261,7 @@
             // 
             // countryTextBox
             // 
+            this.countryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "country", true));
             this.countryTextBox.Location = new System.Drawing.Point(537, 115);
             this.countryTextBox.Name = "countryTextBox";
             this.countryTextBox.Size = new System.Drawing.Size(100, 20);
@@ -363,14 +373,15 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "country";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
-            // button1
+            // btnThem
             // 
-            this.button1.Location = new System.Drawing.Point(308, 403);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnThem.Location = new System.Drawing.Point(308, 403);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.TabIndex = 24;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -399,14 +410,15 @@
             this.button4.Text = "Lưu";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnThoat
             // 
-            this.button5.Location = new System.Drawing.Point(632, 403);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 24;
-            this.button5.Text = "Thoát";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnThoat.Location = new System.Drawing.Point(632, 403);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.TabIndex = 24;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.button5_Click);
             // 
             // phoneNumericUpDown
             // 
@@ -423,11 +435,11 @@
             this.ClientSize = new System.Drawing.Size(727, 447);
             this.Controls.Add(phoneLabel);
             this.Controls.Add(this.phoneNumericUpDown);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.customersDataGridView);
             this.Controls.Add(countryLabel);
             this.Controls.Add(this.countryTextBox);
@@ -488,11 +500,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.NumericUpDown phoneNumericUpDown;
     }
 }
