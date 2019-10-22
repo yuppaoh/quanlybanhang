@@ -38,5 +38,11 @@ namespace QLBH
             FrmDanhMucKhachHang f1 = new FrmDanhMucKhachHang();
             f1.Show();
         }
+
+        private void đặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDatHang fDH = new FrmDatHang();
+            fDH.Show();
+        }
     }
 }
