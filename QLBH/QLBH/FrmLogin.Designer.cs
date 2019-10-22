@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -70,26 +70,27 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(209, 20);
             this.txtPass.TabIndex = 3;
+            this.txtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass_KeyDown);
             // 
-            // button1
+            // btnThoat
             // 
-            this.button1.Location = new System.Drawing.Point(228, 338);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Thoat";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnThoat.Location = new System.Drawing.Point(228, 338);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(95, 23);
+            this.btnThoat.TabIndex = 5;
+            this.btnThoat.Text = "Thoat";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // button2
+            // btnLogin
             // 
-            this.button2.Location = new System.Drawing.Point(114, 338);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Dang nhap";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnLogin.Location = new System.Drawing.Point(114, 338);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(97, 23);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Dang nhap";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label3
             // 
@@ -98,7 +99,7 @@
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(94, 251);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(171, 16);
+            this.label3.Size = new System.Drawing.Size(155, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "QUAN LY BAN HANG";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -113,7 +114,6 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FrmLogin
             // 
@@ -122,8 +122,8 @@
             this.ClientSize = new System.Drawing.Size(375, 376);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
@@ -132,7 +132,6 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
-            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,8 +144,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

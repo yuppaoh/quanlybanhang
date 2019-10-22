@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label employee_idLabel;
             System.Windows.Forms.Label customer_idLabel;
             System.Windows.Forms.Label order_dateLabel;
             System.Windows.Forms.Label shipped_dateLabel;
@@ -50,9 +49,9 @@
             System.Windows.Forms.Label discountLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label employee_idLabel1;
             this.qLBHDataSet = new QLBH.QLBHDataSet();
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employee_idTextBox = new System.Windows.Forms.TextBox();
             this.customer_idTextBox = new System.Windows.Forms.TextBox();
             this.order_dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.shipped_dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -76,19 +75,21 @@
             this.button5 = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbEmployee = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.order_detailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quantityTextBox = new System.Windows.Forms.TextBox();
-            this.unit_priceNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.discountNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.order_detailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.unit_priceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dtp1 = new System.Windows.Forms.DateTimePicker();
-            this.dtp2 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnLoadOrder = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.orderdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shippeddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            employee_idLabel = new System.Windows.Forms.Label();
+            this.dtp2 = new System.Windows.Forms.DateTimePicker();
+            this.dtp1 = new System.Windows.Forms.DateTimePicker();
+            this.ordersTableAdapter = new QLBH.QLBHDataSetTableAdapters.ordersTableAdapter();
+            this.tableAdapterManager = new QLBH.QLBHDataSetTableAdapters.TableAdapterManager();
             customer_idLabel = new System.Windows.Forms.Label();
             order_dateLabel = new System.Windows.Forms.Label();
             shipped_dateLabel = new System.Windows.Forms.Label();
@@ -109,26 +110,18 @@
             discountLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            employee_idLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.qLBHDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_detailsDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.discountNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_detailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unit_priceNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.discountNumericUpDown)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // employee_idLabel
-            // 
-            employee_idLabel.AutoSize = true;
-            employee_idLabel.Location = new System.Drawing.Point(22, 30);
-            employee_idLabel.Name = "employee_idLabel";
-            employee_idLabel.Size = new System.Drawing.Size(66, 13);
-            employee_idLabel.TabIndex = 1;
-            employee_idLabel.Text = "employee id:";
             // 
             // customer_idLabel
             // 
@@ -178,7 +171,7 @@
             // ship_address2Label
             // 
             ship_address2Label.AutoSize = true;
-            ship_address2Label.Location = new System.Drawing.Point(316, 26);
+            ship_address2Label.Location = new System.Drawing.Point(316, 29);
             ship_address2Label.Name = "ship_address2Label";
             ship_address2Label.Size = new System.Drawing.Size(75, 13);
             ship_address2Label.TabIndex = 13;
@@ -232,7 +225,7 @@
             // payment_typeLabel1
             // 
             payment_typeLabel1.AutoSize = true;
-            payment_typeLabel1.Location = new System.Drawing.Point(506, 22);
+            payment_typeLabel1.Location = new System.Drawing.Point(503, 29);
             payment_typeLabel1.Name = "payment_typeLabel1";
             payment_typeLabel1.Size = new System.Drawing.Size(73, 13);
             payment_typeLabel1.TabIndex = 25;
@@ -241,7 +234,7 @@
             // paid_dateLabel
             // 
             paid_dateLabel.AutoSize = true;
-            paid_dateLabel.Location = new System.Drawing.Point(525, 49);
+            paid_dateLabel.Location = new System.Drawing.Point(525, 56);
             paid_dateLabel.Name = "paid_dateLabel";
             paid_dateLabel.Size = new System.Drawing.Size(54, 13);
             paid_dateLabel.TabIndex = 27;
@@ -250,7 +243,7 @@
             // order_statusLabel
             // 
             order_statusLabel.AutoSize = true;
-            order_statusLabel.Location = new System.Drawing.Point(514, 75);
+            order_statusLabel.Location = new System.Drawing.Point(514, 83);
             order_statusLabel.Name = "order_statusLabel";
             order_statusLabel.Size = new System.Drawing.Size(65, 13);
             order_statusLabel.TabIndex = 29;
@@ -265,6 +258,60 @@
             product_idLabel.TabIndex = 31;
             product_idLabel.Text = "product id:";
             // 
+            // quantityLabel1
+            // 
+            quantityLabel1.AutoSize = true;
+            quantityLabel1.Location = new System.Drawing.Point(174, 28);
+            quantityLabel1.Name = "quantityLabel1";
+            quantityLabel1.Size = new System.Drawing.Size(47, 13);
+            quantityLabel1.TabIndex = 44;
+            quantityLabel1.Text = "quantity:";
+            // 
+            // unit_priceLabel
+            // 
+            unit_priceLabel.AutoSize = true;
+            unit_priceLabel.Location = new System.Drawing.Point(326, 28);
+            unit_priceLabel.Name = "unit_priceLabel";
+            unit_priceLabel.Size = new System.Drawing.Size(53, 13);
+            unit_priceLabel.TabIndex = 45;
+            unit_priceLabel.Text = "unit price:";
+            // 
+            // discountLabel
+            // 
+            discountLabel.AutoSize = true;
+            discountLabel.Location = new System.Drawing.Point(502, 28);
+            discountLabel.Name = "discountLabel";
+            discountLabel.Size = new System.Drawing.Size(50, 13);
+            discountLabel.TabIndex = 46;
+            discountLabel.Text = "discount:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(6, 17);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(57, 13);
+            label1.TabIndex = 29;
+            label1.Text = "From date:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(6, 56);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(47, 13);
+            label2.TabIndex = 31;
+            label2.Text = "To date:";
+            // 
+            // employee_idLabel1
+            // 
+            employee_idLabel1.AutoSize = true;
+            employee_idLabel1.Location = new System.Drawing.Point(22, 29);
+            employee_idLabel1.Name = "employee_idLabel1";
+            employee_idLabel1.Size = new System.Drawing.Size(66, 13);
+            employee_idLabel1.TabIndex = 30;
+            employee_idLabel1.Text = "employee id:";
+            // 
             // qLBHDataSet
             // 
             this.qLBHDataSet.DataSetName = "QLBHDataSet";
@@ -274,14 +321,6 @@
             // 
             this.ordersBindingSource.DataMember = "orders";
             this.ordersBindingSource.DataSource = this.qLBHDataSet;
-            // 
-            // employee_idTextBox
-            // 
-            this.employee_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "employee_id", true));
-            this.employee_idTextBox.Location = new System.Drawing.Point(94, 27);
-            this.employee_idTextBox.Name = "employee_idTextBox";
-            this.employee_idTextBox.Size = new System.Drawing.Size(100, 20);
-            this.employee_idTextBox.TabIndex = 2;
             // 
             // customer_idTextBox
             // 
@@ -326,7 +365,7 @@
             // ship_address2TextBox
             // 
             this.ship_address2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "ship_address2", true));
-            this.ship_address2TextBox.Location = new System.Drawing.Point(397, 23);
+            this.ship_address2TextBox.Location = new System.Drawing.Point(397, 26);
             this.ship_address2TextBox.Name = "ship_address2TextBox";
             this.ship_address2TextBox.Size = new System.Drawing.Size(100, 20);
             this.ship_address2TextBox.TabIndex = 14;
@@ -334,7 +373,7 @@
             // ship_cityTextBox
             // 
             this.ship_cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "ship_city", true));
-            this.ship_cityTextBox.Location = new System.Drawing.Point(397, 49);
+            this.ship_cityTextBox.Location = new System.Drawing.Point(397, 53);
             this.ship_cityTextBox.Name = "ship_cityTextBox";
             this.ship_cityTextBox.Size = new System.Drawing.Size(100, 20);
             this.ship_cityTextBox.TabIndex = 16;
@@ -342,7 +381,7 @@
             // ship_stateTextBox
             // 
             this.ship_stateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "ship_state", true));
-            this.ship_stateTextBox.Location = new System.Drawing.Point(397, 76);
+            this.ship_stateTextBox.Location = new System.Drawing.Point(397, 79);
             this.ship_stateTextBox.Name = "ship_stateTextBox";
             this.ship_stateTextBox.Size = new System.Drawing.Size(100, 20);
             this.ship_stateTextBox.TabIndex = 18;
@@ -350,7 +389,7 @@
             // ship_postal_codeTextBox
             // 
             this.ship_postal_codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "ship_postal_code", true));
-            this.ship_postal_codeTextBox.Location = new System.Drawing.Point(397, 102);
+            this.ship_postal_codeTextBox.Location = new System.Drawing.Point(397, 105);
             this.ship_postal_codeTextBox.Name = "ship_postal_codeTextBox";
             this.ship_postal_codeTextBox.Size = new System.Drawing.Size(100, 20);
             this.ship_postal_codeTextBox.TabIndex = 20;
@@ -358,7 +397,7 @@
             // ship_countryTextBox
             // 
             this.ship_countryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "ship_country", true));
-            this.ship_countryTextBox.Location = new System.Drawing.Point(397, 127);
+            this.ship_countryTextBox.Location = new System.Drawing.Point(397, 131);
             this.ship_countryTextBox.Name = "ship_countryTextBox";
             this.ship_countryTextBox.Size = new System.Drawing.Size(100, 20);
             this.ship_countryTextBox.TabIndex = 22;
@@ -366,7 +405,7 @@
             // payment_typeTextBox
             // 
             this.payment_typeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "payment_type", true));
-            this.payment_typeTextBox.Location = new System.Drawing.Point(397, 153);
+            this.payment_typeTextBox.Location = new System.Drawing.Point(397, 157);
             this.payment_typeTextBox.Name = "payment_typeTextBox";
             this.payment_typeTextBox.Size = new System.Drawing.Size(100, 20);
             this.payment_typeTextBox.TabIndex = 24;
@@ -374,7 +413,7 @@
             // payment_typeTextBox1
             // 
             this.payment_typeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "payment_type", true));
-            this.payment_typeTextBox1.Location = new System.Drawing.Point(585, 17);
+            this.payment_typeTextBox1.Location = new System.Drawing.Point(581, 26);
             this.payment_typeTextBox1.Name = "payment_typeTextBox1";
             this.payment_typeTextBox1.Size = new System.Drawing.Size(200, 20);
             this.payment_typeTextBox1.TabIndex = 26;
@@ -382,7 +421,7 @@
             // paid_dateDateTimePicker
             // 
             this.paid_dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ordersBindingSource, "paid_date", true));
-            this.paid_dateDateTimePicker.Location = new System.Drawing.Point(585, 43);
+            this.paid_dateDateTimePicker.Location = new System.Drawing.Point(581, 53);
             this.paid_dateDateTimePicker.Name = "paid_dateDateTimePicker";
             this.paid_dateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.paid_dateDateTimePicker.TabIndex = 28;
@@ -390,7 +429,7 @@
             // order_statusTextBox
             // 
             this.order_statusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "order_status", true));
-            this.order_statusTextBox.Location = new System.Drawing.Point(585, 72);
+            this.order_statusTextBox.Location = new System.Drawing.Point(581, 79);
             this.order_statusTextBox.Name = "order_statusTextBox";
             this.order_statusTextBox.Size = new System.Drawing.Size(200, 20);
             this.order_statusTextBox.TabIndex = 30;
@@ -427,7 +466,6 @@
             this.button2.TabIndex = 45;
             this.button2.Text = "Thêm đơn hàng";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -468,6 +506,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(employee_idLabel1);
+            this.groupBox1.Controls.Add(this.cbbEmployee);
             this.groupBox1.Controls.Add(this.payment_typeTextBox1);
             this.groupBox1.Controls.Add(this.paid_dateDateTimePicker);
             this.groupBox1.Controls.Add(this.order_statusTextBox);
@@ -496,14 +536,21 @@
             this.groupBox1.Controls.Add(this.order_dateDateTimePicker);
             this.groupBox1.Controls.Add(customer_idLabel);
             this.groupBox1.Controls.Add(this.customer_idTextBox);
-            this.groupBox1.Controls.Add(employee_idLabel);
-            this.groupBox1.Controls.Add(this.employee_idTextBox);
             this.groupBox1.Location = new System.Drawing.Point(287, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(795, 196);
+            this.groupBox1.Size = new System.Drawing.Size(805, 197);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn hàng";
+            // 
+            // cbbEmployee
+            // 
+            this.cbbEmployee.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "employee_id", true));
+            this.cbbEmployee.FormattingEnabled = true;
+            this.cbbEmployee.Location = new System.Drawing.Point(94, 26);
+            this.cbbEmployee.Name = "cbbEmployee";
+            this.cbbEmployee.Size = new System.Drawing.Size(121, 21);
+            this.cbbEmployee.TabIndex = 31;
             // 
             // groupBox2
             // 
@@ -524,37 +571,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin chi tiết đơn hàng";
             // 
+            // discountNumericUpDown
+            // 
+            this.discountNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.order_detailsBindingSource, "discount", true));
+            this.discountNumericUpDown.Location = new System.Drawing.Point(552, 26);
+            this.discountNumericUpDown.Name = "discountNumericUpDown";
+            this.discountNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.discountNumericUpDown.TabIndex = 47;
+            // 
             // order_detailsBindingSource
             // 
             this.order_detailsBindingSource.DataMember = "order_details";
             this.order_detailsBindingSource.DataSource = this.qLBHDataSet;
-            // 
-            // quantityLabel1
-            // 
-            quantityLabel1.AutoSize = true;
-            quantityLabel1.Location = new System.Drawing.Point(174, 28);
-            quantityLabel1.Name = "quantityLabel1";
-            quantityLabel1.Size = new System.Drawing.Size(47, 13);
-            quantityLabel1.TabIndex = 44;
-            quantityLabel1.Text = "quantity:";
-            quantityLabel1.Click += new System.EventHandler(this.quantityLabel1_Click);
-            // 
-            // quantityTextBox
-            // 
-            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.order_detailsBindingSource, "quantity", true));
-            this.quantityTextBox.Location = new System.Drawing.Point(221, 25);
-            this.quantityTextBox.Name = "quantityTextBox";
-            this.quantityTextBox.Size = new System.Drawing.Size(100, 20);
-            this.quantityTextBox.TabIndex = 45;
-            // 
-            // unit_priceLabel
-            // 
-            unit_priceLabel.AutoSize = true;
-            unit_priceLabel.Location = new System.Drawing.Point(326, 28);
-            unit_priceLabel.Name = "unit_priceLabel";
-            unit_priceLabel.Size = new System.Drawing.Size(53, 13);
-            unit_priceLabel.TabIndex = 45;
-            unit_priceLabel.Text = "unit price:";
             // 
             // unit_priceNumericUpDown
             // 
@@ -564,22 +592,13 @@
             this.unit_priceNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.unit_priceNumericUpDown.TabIndex = 46;
             // 
-            // discountLabel
+            // quantityTextBox
             // 
-            discountLabel.AutoSize = true;
-            discountLabel.Location = new System.Drawing.Point(502, 28);
-            discountLabel.Name = "discountLabel";
-            discountLabel.Size = new System.Drawing.Size(50, 13);
-            discountLabel.TabIndex = 46;
-            discountLabel.Text = "discount:";
-            // 
-            // discountNumericUpDown
-            // 
-            this.discountNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.order_detailsBindingSource, "discount", true));
-            this.discountNumericUpDown.Location = new System.Drawing.Point(552, 26);
-            this.discountNumericUpDown.Name = "discountNumericUpDown";
-            this.discountNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.discountNumericUpDown.TabIndex = 47;
+            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.order_detailsBindingSource, "quantity", true));
+            this.quantityTextBox.Location = new System.Drawing.Point(221, 25);
+            this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.quantityTextBox.TabIndex = 45;
             // 
             // groupBox3
             // 
@@ -596,39 +615,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách đơn hàng";
             // 
-            // dtp1
+            // btnLoadOrder
             // 
-            this.dtp1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ordersBindingSource, "paid_date", true));
-            this.dtp1.Location = new System.Drawing.Point(6, 33);
-            this.dtp1.Name = "dtp1";
-            this.dtp1.Size = new System.Drawing.Size(200, 20);
-            this.dtp1.TabIndex = 30;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(6, 17);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(57, 13);
-            label1.TabIndex = 29;
-            label1.Text = "From date:";
-            // 
-            // dtp2
-            // 
-            this.dtp2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ordersBindingSource, "paid_date", true));
-            this.dtp2.Location = new System.Drawing.Point(6, 72);
-            this.dtp2.Name = "dtp2";
-            this.dtp2.Size = new System.Drawing.Size(200, 20);
-            this.dtp2.TabIndex = 32;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(6, 56);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(47, 13);
-            label2.TabIndex = 31;
-            label2.Text = "To date:";
+            this.btnLoadOrder.Location = new System.Drawing.Point(9, 117);
+            this.btnLoadOrder.Name = "btnLoadOrder";
+            this.btnLoadOrder.Size = new System.Drawing.Size(251, 23);
+            this.btnLoadOrder.TabIndex = 34;
+            this.btnLoadOrder.Text = "Lấy danh sách đơn hàng";
+            this.btnLoadOrder.UseVisualStyleBackColor = true;
+            this.btnLoadOrder.Click += new System.EventHandler(this.btnLoadOrder_Click);
             // 
             // dataGridView1
             // 
@@ -643,16 +638,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(251, 332);
             this.dataGridView1.TabIndex = 33;
             // 
-            // btnLoadOrder
-            // 
-            this.btnLoadOrder.Location = new System.Drawing.Point(9, 117);
-            this.btnLoadOrder.Name = "btnLoadOrder";
-            this.btnLoadOrder.Size = new System.Drawing.Size(251, 23);
-            this.btnLoadOrder.TabIndex = 34;
-            this.btnLoadOrder.Text = "Lấy danh sách đơn hàng";
-            this.btnLoadOrder.UseVisualStyleBackColor = true;
-            this.btnLoadOrder.Click += new System.EventHandler(this.btnLoadOrder_Click);
-            // 
             // orderdateDataGridViewTextBoxColumn
             // 
             this.orderdateDataGridViewTextBoxColumn.DataPropertyName = "order_date";
@@ -665,11 +650,42 @@
             this.shippeddateDataGridViewTextBoxColumn.HeaderText = "shipped_date";
             this.shippeddateDataGridViewTextBoxColumn.Name = "shippeddateDataGridViewTextBoxColumn";
             // 
+            // dtp2
+            // 
+            this.dtp2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ordersBindingSource, "paid_date", true));
+            this.dtp2.Location = new System.Drawing.Point(6, 72);
+            this.dtp2.Name = "dtp2";
+            this.dtp2.Size = new System.Drawing.Size(200, 20);
+            this.dtp2.TabIndex = 32;
+            // 
+            // dtp1
+            // 
+            this.dtp1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ordersBindingSource, "paid_date", true));
+            this.dtp1.Location = new System.Drawing.Point(6, 33);
+            this.dtp1.Name = "dtp1";
+            this.dtp1.Size = new System.Drawing.Size(200, 20);
+            this.dtp1.TabIndex = 30;
+            // 
+            // ordersTableAdapter
+            // 
+            this.ordersTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.configsTableAdapter = null;
+            this.tableAdapterManager.customersTableAdapter = null;
+            this.tableAdapterManager.employeesTableAdapter = null;
+            this.tableAdapterManager.order_detailsTableAdapter = null;
+            this.tableAdapterManager.ordersTableAdapter = this.ordersTableAdapter;
+            this.tableAdapterManager.productsTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLBH.QLBHDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // FrmDatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1092, 579);
+            this.ClientSize = new System.Drawing.Size(1099, 579);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -688,9 +704,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.discountNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_detailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unit_priceNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.discountNumericUpDown)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -702,7 +718,6 @@
 
         private QLBHDataSet qLBHDataSet;
         private System.Windows.Forms.BindingSource ordersBindingSource;
-        private System.Windows.Forms.TextBox employee_idTextBox;
         private System.Windows.Forms.TextBox customer_idTextBox;
         private System.Windows.Forms.DateTimePicker order_dateDateTimePicker;
         private System.Windows.Forms.DateTimePicker shipped_dateDateTimePicker;
@@ -738,5 +753,8 @@
         private System.Windows.Forms.Button btnLoadOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderdateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shippeddateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox cbbEmployee;
+        private QLBHDataSetTableAdapters.ordersTableAdapter ordersTableAdapter;
+        private QLBHDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

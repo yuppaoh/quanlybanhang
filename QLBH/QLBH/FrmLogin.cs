@@ -14,29 +14,33 @@ namespace QLBH
         public FrmLogin()
         {
             InitializeComponent();
-        }
+        }  
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "admin" && txtPass.Text == "12345")
+            if (txtUsername.Text == "admin" && txtPass.Text == "123")
             {
-                MessageBox.Show("Dang nhap thanh cong");
+                FrmMain fMain = new FrmMain();
+                this.Hide();
+                fMain.Show();
+            }
+            else
+            {
+                MessageBox.Show("Dang nhap that bai!");
             }
         }
 
-        private void FrmLogin_Load(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
         }
     }
 }

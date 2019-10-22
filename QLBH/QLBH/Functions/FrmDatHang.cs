@@ -13,6 +13,7 @@ namespace QLBH.Functions
     public partial class FrmDatHang : Form
     {
         string connectionString = QLBH.Properties.Settings.Default.QLBHConnectionString;
+        SortedDictionary<int, string> listEmployees = new SortedDictionary<int, string>();
         public FrmDatHang()
         {
             InitializeComponent();
@@ -106,31 +107,75 @@ namespace QLBH.Functions
             }
         }
 
+        public void LoadDanhSachNhanVien()
+        {
+            // Tạo câu lệnh để thực thi đến database
+            string queryString = String.Format("SELECT * FROM employees");
+
+            // Tạo object từ class SqlConnection (dùng để quản lý kết nối đến Database Server)
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Tạo object từ class SqlCommand (dùng để quản lý việc thực thi câu lệnh)
+                using (SqlCommand command = new SqlCommand(queryString, connection))
+                {
+                    try
+                    {
+                        // Mở kết nối đến Database Server
+                        connection.Open();
+
+                        // Tạo object từ class SqlDataAdapter (dùng để lấy dữ liệu)
+                        SqlDataAdapter adapter = new SqlDataAdapter();
+                        adapter.SelectCommand = command;
+
+                        // Đổ dữ liệu vào dataset
+                        adapter.Fill(qLBHDataSet.employees);
+
+                        // Hiển thị dữ liệu
+                        foreach (DataRow row in qLBHDataSet.employees.Rows)
+                        {
+                            int key = Convert.ToInt32(row["id"]);
+                            string value = row["first_name"].ToString();
+                            listEmployees.Add(key, value);
+                        }
+                        cbbEmployee.DataSource = new BindingSource(listEmployees, null);
+                        cbbEmployee.DisplayMember = "Value";
+                        cbbEmployee.ValueMember = "Key";
+
+                        // Ngắt kết nối đến Database Server
+                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Hiển thị thông báo nếu có lỗi
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
         private void FrmDatHang_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLBHDataSet.customers' table. You can move, or remove it, as needed.
             Load_order_details();
-            
-        }
+            LoadDanhSachNhanVien();
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
         }
-
-        private void quantityLabel1_Click(object sender, EventArgs e)
+       
+        private void btnThoat_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void employee_idComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDanhSachNhanVien();
         }
 
         private void btnLoadOrder_Click(object sender, EventArgs e)
         {
             Load_order();
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            
         }
     }
 }

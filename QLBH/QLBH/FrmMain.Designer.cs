@@ -94,20 +94,20 @@
             // kháchHàngToolStripMenuItem
             // 
             this.kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
-            this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.kháchHàngToolStripMenuItem.Text = "Khách hàng";
             this.kháchHàngToolStripMenuItem.Click += new System.EventHandler(this.kháchHàngToolStripMenuItem_Click);
             // 
             // nhânViênToolStripMenuItem
             // 
             this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.nhânViênToolStripMenuItem.Text = "Nhân viên";
             // 
             // sảnPhẩmToolStripMenuItem
             // 
             this.sảnPhẩmToolStripMenuItem.Name = "sảnPhẩmToolStripMenuItem";
-            this.sảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.sảnPhẩmToolStripMenuItem.Text = "Sản phẩm";
             // 
             // muaBánToolStripMenuItem
@@ -121,7 +121,7 @@
             // đặtHàngToolStripMenuItem
             // 
             this.đặtHàngToolStripMenuItem.Name = "đặtHàngToolStripMenuItem";
-            this.đặtHàngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.đặtHàngToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.đặtHàngToolStripMenuItem.Text = "Đặt hàng";
             this.đặtHàngToolStripMenuItem.Click += new System.EventHandler(this.đặtHàngToolStripMenuItem_Click);
             // 
@@ -162,6 +162,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.Text = "QuanLyBanHang";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
