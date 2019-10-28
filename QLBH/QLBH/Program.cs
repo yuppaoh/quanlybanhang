@@ -16,11 +16,12 @@ namespace QLBH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmMain());
+            //Application.Run(new FormReport());
             //Application.Run(new FrmConfig());
             //Application.Run(new FrmDatHang());
             //Application.Run(new FrmDanhMucSanPham());
-            
+
         }
     }
 }

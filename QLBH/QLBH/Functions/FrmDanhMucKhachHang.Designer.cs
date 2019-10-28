@@ -41,6 +41,8 @@
             System.Windows.Forms.Label countryLabel;
             System.Windows.Forms.Label phoneLabel;
             this.last_nameTextBox = new System.Windows.Forms.TextBox();
+            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLBHDataSet = new QLBH.QLBHDataSet();
             this.first_nameTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.companyTextBox = new System.Windows.Forms.TextBox();
@@ -50,8 +52,6 @@
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.stateTextBox = new System.Windows.Forms.TextBox();
             this.countryTextBox = new System.Windows.Forms.TextBox();
-            this.qLBHDataSet = new QLBH.QLBHDataSet();
-            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,8 +82,8 @@
             stateLabel = new System.Windows.Forms.Label();
             countryLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.qLBHDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLBHDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -195,6 +195,16 @@
             this.last_nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.last_nameTextBox.TabIndex = 2;
             // 
+            // customersBindingSource
+            // 
+            this.customersBindingSource.DataMember = "customers";
+            this.customersBindingSource.DataSource = this.qLBHDataSet;
+            // 
+            // qLBHDataSet
+            // 
+            this.qLBHDataSet.DataSetName = "QLBHDataSet";
+            this.qLBHDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // first_nameTextBox
             // 
             this.first_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "first_name", true));
@@ -266,16 +276,6 @@
             this.countryTextBox.Name = "countryTextBox";
             this.countryTextBox.Size = new System.Drawing.Size(100, 20);
             this.countryTextBox.TabIndex = 22;
-            // 
-            // qLBHDataSet
-            // 
-            this.qLBHDataSet.DataSetName = "QLBHDataSet";
-            this.qLBHDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // customersBindingSource
-            // 
-            this.customersBindingSource.DataMember = "customers";
-            this.customersBindingSource.DataSource = this.qLBHDataSet;
             // 
             // customersDataGridView
             // 
@@ -464,8 +464,8 @@
             this.Name = "FrmDanhMucKhachHang";
             this.Text = "FrmDanhMucKhachHang";
             this.Load += new System.EventHandler(this.FrmDanhMucKhachHang_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.qLBHDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLBHDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneNumericUpDown)).EndInit();
             this.ResumeLayout(false);
